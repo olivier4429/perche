@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perche à Selfie 3-en-1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: 30px;
+    }
+    .product-title {
+      font-size: 2em;
+      color: #007BFF;
+      margin-bottom: 10px;
+    }
+    .price {
+      font-size: 1.5em;
+      color: #28a745;
+      margin-bottom: 10px;
+    }
+    .gallery {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      margin-bottom: 20px;
+    }
+    .gallery img {
+      width: 200px;
+      border-radius: 8px;
+    }
+    .section-title {
+      font-size: 1.2em;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+    .submit-btn, .pay-btn {
+      background: #28a745;
+      color: white;
+      padding: 15px 25px;
+      font-size: 1em;
+      text-decoration: none;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .submit-btn:hover, .pay-btn:hover {
+      background: #218838;
+    }
+    .payment-section {
+      margin-top: 30px;
+      background: #eef9f1;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .payment-section img {
+      width: 150px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="product-title">Perche à Selfie 3-en-1 avec Trépied et Télécommande Bluetooth</h1>
+    <div class="price">6 900 FCFA</div>
+
+    <div class="gallery">
+      <img src="1.jpg" alt="Perche à selfie dépliée">
+      <img src="2.jpg" alt="Utilisation en mode trépied">
+      <img src="3.jpg" alt="Télécommande Bluetooth">
+    </div>
+	<div class="gallery">
+      <img src="4.jpg" alt="Perche à selfie dépliée">
+      <img src="5.jpg" alt="Utilisation en mode trépied">
+      <img src="6.jpg" alt="Télécommande Bluetooth">
+    </div>
+
+    <p>Prenez vos photos et vidéos comme un pro avec cette perche à selfie compacte et multifonction. Parfaite pour TikTok, appels vidéo ou vlogs quotidiens !</p>
+
+    <div class="section-title">Caractéristiques clés :</div>
+    <ul>
+      <li>3 en 1 : Perche à selfie + Trépied + Télécommande Bluetooth</li>
+      <li>Longueur extensible jusqu’à 1 mètre</li>
+      <li>Télécommande Bluetooth détachable (portée jusqu’à 10 m)</li>
+      <li>Compatible Android et iOS</li>
+      <li>Ultra légère et pliable, facile à transporter</li>
+    </ul>
+
+    <div class="section-title">Contenu du paquet :</div>
+    <ul>
+      <li>1 x Perche à selfie</li>
+      <li>1 x Télécommande Bluetooth</li>
+      <li>1 x Guide d'utilisation rapide</li>
+    </ul>
+
+    <div class="section-title">Commande & Livraison :</div>
+    <p>
+      Livraison gratuite sur Dakar à partir de 2 unités.<br>
+      Paiement à la livraison possible | Garantie 7 jours satisfait ou remboursé.
+    </p>
+
+    <div class="section-title">📋 Formulaire de Commande :</div>
+    <form onsubmit="event.preventDefault(); document.getElementById('paiement').scrollIntoView({ behavior: 'smooth' });">
+      <label>Nom complet :</label>
+      <input type="text" name="Nom" required>
+
+      <label>Numéro de téléphone :</label>
+      <input type="tel" name="Téléphone" required>
+
+      <label>Adresse de livraison :</label>
+      <textarea name="Adresse" required></textarea>
+
+      <label>Quantité :</label>
+      <select name="Quantité">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3+">3 ou plus</option>
+      </select>
+
+      <label>Méthode de paiement :</label>
+      <select name="Paiement">
+        <option value="Wave">Wave</option>
+        <option value="Orange Money">Orange Money</option>
+        <option value="Paiement à la livraison">Paiement à la livraison</option>
+      </select>
+
+      <button type="submit" class="submit-btn">✅ Étape suivante : Payer</button>
+    </form>
+
+    <div id="paiement" class="payment-section">
+      <div class="section-title">💳 Paiement mobile :</div>
+
+      <h3>1. Payer avec Wave</h3>
+      <img src="wave_qr_code.png" alt="QR Code Wave">
+      <p>Envoyez <strong>6900 FCFA</strong> à ce numéro via l'app Wave :</p>
+      <p><strong>77 000 00 00</strong></p>
+
+      <h3>2. Payer avec Orange Money</h3>
+      <a href="tel:*144*3*1*770000000*6900#" class="pay-btn">📱 Composer *144*3*1*770000000*6900#</a>
+
+      <p style="margin-top: 20px;">Après paiement, vous serez contacté par notre équipe pour la confirmation de la livraison.</p>
+    </div>
+  </div>
+</body>
+</html>
