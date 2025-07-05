@@ -6,162 +6,240 @@
   <title>Perche à Selfie 3-en-1</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
       margin: 0;
       padding: 0;
       color: #333;
     }
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
       background: white;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-top: 30px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      margin-top: 40px;
+      border-radius: 12px;
     }
     .product-title {
-      font-size: 2em;
+      font-size: 2.2em;
       color: #007BFF;
       margin-bottom: 10px;
+      text-align: center;
     }
     .price {
-      font-size: 1.5em;
+      font-size: 1.8em;
       color: #28a745;
-      margin-bottom: 10px;
+      text-align: center;
+      margin-bottom: 20px;
     }
     .gallery {
       display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 25px;
     }
     .gallery img {
-      width: 200px;
-      border-radius: 8px;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+    .modal:target {
+      display: flex;
     }
     .section-title {
-      font-size: 1.2em;
-      margin-top: 20px;
+      font-size: 1.4em;
+      margin-top: 25px;
       margin-bottom: 10px;
-      color: #555;
+      color: #333;
     }
     ul {
       padding-left: 20px;
     }
     input, select, textarea {
       width: 100%;
-      padding: 10px;
-      margin: 8px 0;
+      padding: 12px;
+      margin: 10px 0;
       box-sizing: border-box;
+      border-radius: 6px;
+      border: 1px solid #ccc;
     }
     .submit-btn, .pay-btn {
       background: #28a745;
       color: white;
-      padding: 15px 25px;
+      padding: 15px 30px;
       font-size: 1em;
-      text-decoration: none;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       display: inline-block;
-      margin-top: 10px;
+      margin-top: 15px;
+      transition: background 0.3s ease;
     }
     .submit-btn:hover, .pay-btn:hover {
       background: #218838;
     }
     .payment-section {
-      margin-top: 30px;
+      margin-top: 40px;
       background: #eef9f1;
-      padding: 20px;
+      padding: 25px;
       border-radius: 10px;
     }
     .payment-section img {
       width: 150px;
       margin-bottom: 10px;
     }
+    .highlight {
+      background: #d1ecf1;
+      color: #0c5460;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .cta {
+      background: #007bff;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .cta:hover {
+      background: #0056b3;
+    }
   </style>
+  <script>
+    function envoyerNotificationWhatsApp() {
+      const nom = document.querySelector('[name="Nom"]').value;
+      const tel = document.querySelector('[name="Téléphone"]').value;
+      const adresse = document.querySelector('[name="Adresse"]').value;
+      const quantite = document.querySelector('[name="Quantité"]').value;
+      const paiement = document.querySelector('[name="Paiement"]').value;
+
+      const message = encodeURIComponent(
+        `📦 Nouvelle commande perche à selfie !\n\n👤 Nom : ${nom}\n📞 Téléphone : ${tel}\n📍 Adresse : ${adresse}\n📦 Quantité : ${quantite}\n💰 Paiement : ${paiement}`
+      );
+
+      const numeroWhatsApp = '221770000000';
+      const url = `https://wa.me/${numeroWhatsApp}?text=${message}`;
+
+      window.open(url, '_blank');
+    }
+
+    function payerEnLigne() {
+      const checkoutUrl = 'https://buy.stripe.com/test_1234567890abcdef';
+      window.open(checkoutUrl, '_blank');
+    }
+
+    function agrandirImage(src) {
+      const modalImg = document.getElementById('modal-image');
+      modalImg.src = src;
+      document.getElementById('image-modal').style.display = 'flex';
+    }
+
+    function fermerModal() {
+      document.getElementById('image-modal').style.display = 'none';
+    }
+  </script>
 </head>
 <body>
   <div class="container">
-    <h1 class="product-title">Perche à Selfie 3-en-1 avec Trépied et Télécommande Bluetooth</h1>
-    <div class="price">6 900 FCFA</div>
+    <h1 class="product-title">🔥 Promo Spéciale : Perche à Selfie 3-en-1</h1>
+    <div class="price">Seulement 6 900 FCFA</div>
+
+    <div class="highlight">📦 Livraison gratuite sur Dakar à partir de 2 unités — Stock limité !</div>
 
     <div class="gallery">
-      <img src="1.jpg" alt="Perche à selfie dépliée">
-      <img src="2.jpg" alt="Utilisation en mode trépied">
-      <img src="3.jpg" alt="Télécommande Bluetooth">
-    </div>
-	<div class="gallery">
-      <img src="4.jpg" alt="Perche à selfie dépliée">
-      <img src="5.jpg" alt="Utilisation en mode trépied">
-      <img src="6.jpg" alt="Télécommande Bluetooth">
+      <img src="selfie1.jpg" alt="Perche à selfie dépliée" onclick="agrandirImage(this.src)">
+      <img src="selfie2.jpg" alt="Utilisation en mode trépied" onclick="agrandirImage(this.src)">
+      <img src="selfie3.jpg" alt="Télécommande Bluetooth" onclick="agrandirImage(this.src)">
     </div>
 
-    <p>Prenez vos photos et vidéos comme un pro avec cette perche à selfie compacte et multifonction. Parfaite pour TikTok, appels vidéo ou vlogs quotidiens !</p>
+    <div id="image-modal" class="modal" onclick="fermerModal()">
+      <img id="modal-image" src="" alt="Image zoomée">
+    </div>
 
-    <div class="section-title">Caractéristiques clés :</div>
+    <!-- Le reste du code HTML reste inchangé -->
+
+    <p style="font-size: 1.1em;">✨ Améliorez vos selfies, vidéos TikTok et appels vidéo avec cette perche ultra compacte, pliable et puissante. Facile à utiliser, elle devient vite indispensable au quotidien !</p>
+
+    <div class="section-title">✅ Caractéristiques clés :</div>
     <ul>
       <li>3 en 1 : Perche à selfie + Trépied + Télécommande Bluetooth</li>
       <li>Longueur extensible jusqu’à 1 mètre</li>
-      <li>Télécommande Bluetooth détachable (portée jusqu’à 10 m)</li>
-      <li>Compatible Android et iOS</li>
-      <li>Ultra légère et pliable, facile à transporter</li>
+      <li>Bluetooth détachable (portée jusqu’à 10 mètres)</li>
+      <li>Compatible Android & iOS</li>
+      <li>Design léger, pliable et facile à emporter partout</li>
     </ul>
 
-    <div class="section-title">Contenu du paquet :</div>
+    <div class="section-title">🎁 Dans la boîte :</div>
     <ul>
-      <li>1 x Perche à selfie</li>
+      <li>1 x Perche à selfie multifonction</li>
       <li>1 x Télécommande Bluetooth</li>
-      <li>1 x Guide d'utilisation rapide</li>
+      <li>1 x Guide d’utilisation (FR)</li>
     </ul>
 
-    <div class="section-title">Commande & Livraison :</div>
-    <p>
-      Livraison gratuite sur Dakar à partir de 2 unités.<br>
-      Paiement à la livraison possible | Garantie 7 jours satisfait ou remboursé.
-    </p>
-
-    <div class="section-title">📋 Formulaire de Commande :</div>
-    <form onsubmit="event.preventDefault(); document.getElementById('paiement').scrollIntoView({ behavior: 'smooth' });">
-      <label>Nom complet :</label>
-      <input type="text" name="Nom" required>
-
-      <label>Numéro de téléphone :</label>
-      <input type="tel" name="Téléphone" required>
-
-      <label>Adresse de livraison :</label>
-      <textarea name="Adresse" required></textarea>
-
-      <label>Quantité :</label>
+    <div class="section-title">📋 Commande rapide :</div>
+    <form onsubmit="event.preventDefault(); envoyerNotificationWhatsApp(); document.getElementById('paiement').scrollIntoView({ behavior: 'smooth' });">
+      <input type="text" name="Nom" placeholder="Nom complet" required>
+      <input type="tel" name="Téléphone" placeholder="Téléphone" required>
+      <textarea name="Adresse" placeholder="Adresse complète de livraison" required></textarea>
       <select name="Quantité">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3+">3 ou plus</option>
+        <option value="1">1 unité</option>
+        <option value="2">2 unités</option>
+        <option value="3+">3 unités ou plus</option>
       </select>
-
-      <label>Méthode de paiement :</label>
       <select name="Paiement">
+        <option value="Paiement à la livraison">Paiement à la livraison</option>
         <option value="Wave">Wave</option>
         <option value="Orange Money">Orange Money</option>
-        <option value="Paiement à la livraison">Paiement à la livraison</option>
+        <option value="Paiement en ligne">Paiement en ligne (Carte bancaire)</option>
       </select>
-
-      <button type="submit" class="submit-btn">✅ Étape suivante : Payer</button>
+      <button type="submit" class="submit-btn">✅ Étape suivante : Paiement</button>
     </form>
 
     <div id="paiement" class="payment-section">
-      <div class="section-title">💳 Paiement mobile :</div>
+      <div class="section-title">💳 Paiement sécurisé :</div>
 
-      <h3>1. Payer avec Wave</h3>
+      <h3>Wave</h3>
       <img src="wave_qr_code.png" alt="QR Code Wave">
-      <p>Envoyez <strong>6900 FCFA</strong> à ce numéro via l'app Wave :</p>
-      <p><strong>77 000 00 00</strong></p>
+      <p>Scannez ou envoyez <strong>6900 FCFA</strong> à <strong>77 000 00 00</strong> via l’application Wave.</p>
 
-      <h3>2. Payer avec Orange Money</h3>
+      <h3>Orange Money</h3>
       <a href="tel:*144*3*1*770000000*6900#" class="pay-btn">📱 Composer *144*3*1*770000000*6900#</a>
 
-      <p style="margin-top: 20px;">Après paiement, vous serez contacté par notre équipe pour la confirmation de la livraison.</p>
+      <h3>Paiement en ligne (carte bancaire)</h3>
+      <button class="pay-btn" onclick="payerEnLigne()">💳 Payer maintenant par carte</button>
+
+      <p style="margin-top: 20px;">📞 Notre équipe vous contactera pour confirmer votre commande après paiement.</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="#" class="cta">📦 Commandez maintenant et recevez en 24h à Dakar !</a>
     </div>
   </div>
 </body>
