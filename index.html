@@ -4,48 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perche à Selfie 3-en-1</title>
-  <style>
+    <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f0f2f5;
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fa;
       margin: 0;
-      padding: 0;
       color: #333;
     }
     .container {
       max-width: 900px;
-      margin: auto;
-      background: white;
+      margin: 40px auto;
+      background: #fff;
       padding: 30px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      margin-top: 40px;
-      border-radius: 12px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
-    .product-title {
-      font-size: 2.2em;
-      color: #007BFF;
-      margin-bottom: 10px;
+    h1, .price {
       text-align: center;
+    }
+    h1 {
+      font-size: 2.4em;
+      color: #0275d8;
+      margin-bottom: 0.2em;
     }
     .price {
-      font-size: 1.8em;
-      color: #28a745;
+      font-size: 2em;
+      color: #5cb85c;
+      margin-bottom: 0.5em;
+    }
+    .highlight {
+      background: #d9edf7;
+      color: #31708f;
+      padding: 15px;
+      margin-bottom: 25px;
+      border-radius: 8px;
       text-align: center;
-      margin-bottom: 20px;
+      font-weight: 600;
     }
     .gallery {
       display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
+      gap: 12px;
       justify-content: center;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
+      overflow-x: auto;
     }
     .gallery img {
-      width: 250px;
+      width: 180px;
       border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       cursor: pointer;
-      transition: transform 0.2s ease;
+      transition: transform 0.3s;
     }
     .gallery img:hover {
       transform: scale(1.05);
@@ -53,83 +60,71 @@
     .modal {
       display: none;
       position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0,0,0,0.8);
-      justify-content: center;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
       align-items: center;
+      justify-content: center;
+      z-index: 1000;
     }
     .modal img {
-      max-width: 90%;
-      max-height: 90%;
+      max-width: 95%;
+      max-height: 95%;
       border-radius: 12px;
     }
     .modal:target {
       display: flex;
     }
     .section-title {
-      font-size: 1.4em;
-      margin-top: 25px;
-      margin-bottom: 10px;
+      font-size: 1.3em;
+      margin-top: 30px;
+      margin-bottom: 12px;
       color: #333;
     }
-    ul {
-      padding-left: 20px;
-    }
+    ul { margin-left: 20px; }
     input, select, textarea {
       width: 100%;
       padding: 12px;
-      margin: 10px 0;
-      box-sizing: border-box;
-      border-radius: 6px;
+      margin-top: 8px;
+      margin-bottom: 15px;
       border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
     }
     .submit-btn, .pay-btn {
-      background: #28a745;
-      color: white;
-      padding: 15px 30px;
-      font-size: 1em;
+      background: #5cb85c;
+      color: #fff;
       border: none;
+      padding: 15px 25px;
+      font-size: 1.1em;
       border-radius: 8px;
       cursor: pointer;
-      display: inline-block;
       margin-top: 15px;
-      transition: background 0.3s ease;
+      transition: background 0.3s;
+      width: 100%;
     }
     .submit-btn:hover, .pay-btn:hover {
-      background: #218838;
+      background: #4cae4c;
     }
     .payment-section {
       margin-top: 40px;
-      background: #eef9f1;
+      background: #f2f9f5;
       padding: 25px;
       border-radius: 10px;
     }
-    .payment-section img {
-      width: 150px;
-      margin-bottom: 10px;
-    }
-    .highlight {
-      background: #d1ecf1;
-      color: #0c5460;
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 20px;
-    }
     .cta {
-      background: #007bff;
-      color: white;
-      padding: 12px 20px;
+      display: block;
+      text-align: center;
+      background: #0275d8;
+      color: #fff;
+      padding: 15px;
+      font-size: 1.1em;
       border-radius: 8px;
       text-decoration: none;
-      display: inline-block;
-      margin-top: 10px;
+      margin-top: 25px;
+      transition: background 0.3s;
     }
     .cta:hover {
-      background: #0056b3;
+      background: #025aa5;
     }
   </style>
   <script>
@@ -178,6 +173,13 @@
       <img src="selfie2.jpg" alt="Utilisation en mode trépied" onclick="agrandirImage(this.src)">
       <img src="selfie3.jpg" alt="Télécommande Bluetooth" onclick="agrandirImage(this.src)">
     </div>
+	<div class="gallery">
+      <img src="selfie4.jpg" alt="Scenes" onclick="agrandirImage(this.src)">
+      <img src="selfie5.jpg" alt="Compacte" onclick="agrandirImage(this.src)">
+      <img src="selfie6.jpg" alt="Examples" onclick="agrandirImage(this.src)">
+    </div>
+
+
 
     <div id="image-modal" class="modal" onclick="fermerModal()">
       <img id="modal-image" src="" alt="Image zoomée">
@@ -202,7 +204,13 @@
       <li>1 x Télécommande Bluetooth</li>
       <li>1 x Guide d’utilisation (FR)</li>
     </ul>
-
+	<div class="section-title">📸 Exemples d’utilisation</div>
+<div class="gallery">
+  <img src="image1.jpg" alt="Selfie outdoor" onclick="agrandirImage(this.src)">
+  <img src="image2.jpg" alt="Selfie en couple" onclick="agrandirImage(this.src)">
+  <img src="image3.jpg" alt="Selfie à la plage" onclick="agrandirImage(this.src)">
+  <img src="image4.jpg" alt="Selfie en groupe" onclick="agrandirImage(this.src)">
+</div>
     <div class="section-title">📋 Commande rapide :</div>
     <form onsubmit="event.preventDefault(); envoyerNotificationWhatsApp(); document.getElementById('paiement').scrollIntoView({ behavior: 'smooth' });">
       <input type="text" name="Nom" placeholder="Nom complet" required>
