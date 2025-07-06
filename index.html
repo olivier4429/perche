@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perche à Selfie 3-en-1</title>
-    <style>
+  <style>
     body {
       font-family: 'Poppins', sans-serif;
       background: #f8f9fa;
       margin: 0;
       color: #333;
     }
+
     .container {
       max-width: 900px;
       margin: 40px auto;
       background: #fff;
       padding: 30px;
       border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
-    h1, .price {
+
+    h1,
+    .price {
       text-align: center;
     }
+
     h1 {
       font-size: 2.4em;
       color: #0275d8;
       margin-bottom: 0.2em;
     }
+
     .price {
       font-size: 2em;
       color: #5cb85c;
       margin-bottom: 0.5em;
     }
+
     .highlight {
       background: #d9edf7;
       color: #31708f;
@@ -41,7 +48,8 @@
       text-align: center;
       font-weight: 600;
     }
- .gallery {
+
+    .gallery {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
@@ -62,31 +70,41 @@
       height: 240px;
       object-fit: cover;
     }
+
     .modal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0, 0, 0, 0.8);
       align-items: center;
       justify-content: center;
       z-index: 1000;
     }
+
     .modal img {
       max-width: 95%;
       max-height: 95%;
       border-radius: 12px;
     }
+
     .modal:target {
       display: flex;
     }
+
     .section-title {
       font-size: 1.3em;
       margin-top: 30px;
       margin-bottom: 12px;
       color: #333;
     }
-    ul { margin-left: 20px; }
-    input, select, textarea {
+
+    ul {
+      margin-left: 20px;
+    }
+
+    input,
+    select,
+    textarea {
       width: 100%;
       padding: 12px;
       margin-top: 8px;
@@ -95,7 +113,9 @@
       border-radius: 6px;
       font-size: 1em;
     }
-    .submit-btn, .pay-btn {
+
+    .submit-btn,
+    .pay-btn {
       background: #5cb85c;
       color: #fff;
       border: none;
@@ -107,15 +127,19 @@
       transition: background 0.3s;
       width: 100%;
     }
-    .submit-btn:hover, .pay-btn:hover {
+
+    .submit-btn:hover,
+    .pay-btn:hover {
       background: #4cae4c;
     }
+
     .payment-section {
       margin-top: 40px;
       background: #f2f9f5;
       padding: 25px;
       border-radius: 10px;
     }
+
     .cta {
       display: block;
       text-align: center;
@@ -128,6 +152,7 @@
       margin-top: 25px;
       transition: background 0.3s;
     }
+
     .cta:hover {
       background: #025aa5;
     }
@@ -166,6 +191,7 @@
     }
   </script>
 </head>
+
 <body>
   <div class="container">
     <h1 class="product-title">🔥 Promo Spéciale : Perche à Selfie 3-en-1</h1>
@@ -178,7 +204,7 @@
       <img src="selfie2.jpg" alt="Utilisation en mode trépied" onclick="agrandirImage(this.src)">
       <img src="selfie3.jpg" alt="Télécommande Bluetooth" onclick="agrandirImage(this.src)">
     </div>
-	<div class="gallery">
+    <div class="gallery">
       <img src="selfie4.jpg" alt="Scenes" onclick="agrandirImage(this.src)">
       <img src="selfie5.jpg" alt="Compacte" onclick="agrandirImage(this.src)">
       <img src="selfie6.jpg" alt="Examples" onclick="agrandirImage(this.src)">
@@ -192,7 +218,8 @@
 
     <!-- Le reste du code HTML reste inchangé -->
 
-    <p style="font-size: 1.1em;">✨ Améliorez vos selfies, vidéos TikTok et appels vidéo avec cette perche ultra compacte, pliable et puissante. Facile à utiliser, elle devient vite indispensable au quotidien !</p>
+    <p style="font-size: 1.1em;">✨ Améliorez vos selfies, vidéos TikTok et appels vidéo avec cette perche ultra
+      compacte, pliable et puissante. Facile à utiliser, elle devient vite indispensable au quotidien !</p>
 
     <div class="section-title">✅ Caractéristiques clés :</div>
     <ul>
@@ -209,15 +236,16 @@
       <li>1 x Télécommande Bluetooth</li>
       <li>1 x Guide d’utilisation (FR)</li>
     </ul>
-	<div class="section-title">📸 Exemples d’utilisation</div>
-<div class="gallery examples">
-  <img src="image1.jpg" alt="Selfie outdoor" onclick="agrandirImage(this.src)">
-  <img src="image2.jpg" alt="Selfie en couple" onclick="agrandirImage(this.src)">
-  <img src="image3.jpg" alt="Selfie à la plage" onclick="agrandirImage(this.src)">
-  <img src="image4.jpg" alt="Selfie en groupe" onclick="agrandirImage(this.src)">
-</div>
+    <div class="section-title">📸 Exemples d’utilisation</div>
+    <div class="gallery examples">
+      <img src="image1.jpg" alt="Selfie outdoor" onclick="agrandirImage(this.src)">
+      <img src="image2.jpg" alt="Selfie en couple" onclick="agrandirImage(this.src)">
+      <img src="image3.jpg" alt="Selfie à la plage" onclick="agrandirImage(this.src)">
+      <img src="image4.jpg" alt="Selfie en groupe" onclick="agrandirImage(this.src)">
+    </div>
     <div class="section-title">📋 Commande rapide :</div>
-    <form onsubmit="event.preventDefault(); envoyerNotificationWhatsApp(); document.getElementById('paiement').scrollIntoView({ behavior: 'smooth' });">
+    <form
+      onsubmit="event.preventDefault(); envoyerNotificationWhatsApp(); document.getElementById('paiement').scrollIntoView({ behavior: 'smooth' });">
       <input type="text" name="Nom" placeholder="Nom complet" required>
       <input type="tel" name="Téléphone" placeholder="Téléphone" required>
       <textarea name="Adresse" placeholder="Adresse complète de livraison" required></textarea>
@@ -256,4 +284,5 @@
     </div>
   </div>
 </body>
+
 </html>
