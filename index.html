@@ -41,21 +41,26 @@
       text-align: center;
       font-weight: 600;
     }
-    .gallery {
+ .gallery {
       display: flex;
+      flex-wrap: wrap;
       gap: 12px;
       justify-content: center;
       margin-bottom: 30px;
-      overflow-x: auto;
     }
+
     .gallery img {
-      width: 180px;
+      width: 100%;
+      max-width: 180px;
       border-radius: 10px;
       cursor: pointer;
       transition: transform 0.3s;
     }
-    .gallery img:hover {
-      transform: scale(1.05);
+
+    /* Appliquer un recadrage uniquement aux images d'exemple */
+    .gallery.examples img {
+      height: 240px;
+      object-fit: cover;
     }
     .modal {
       display: none;
@@ -205,7 +210,7 @@
       <li>1 x Guide d’utilisation (FR)</li>
     </ul>
 	<div class="section-title">📸 Exemples d’utilisation</div>
-<div class="gallery">
+<div class="gallery examples">
   <img src="image1.jpg" alt="Selfie outdoor" onclick="agrandirImage(this.src)">
   <img src="image2.jpg" alt="Selfie en couple" onclick="agrandirImage(this.src)">
   <img src="image3.jpg" alt="Selfie à la plage" onclick="agrandirImage(this.src)">
